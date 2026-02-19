@@ -44,19 +44,19 @@ obj = GraduateStudent()
 obj.graduated()
 
 print("4. Write a decorator to measure execution time of a function.")
+import time
 def measure_time(func):
     def wrapper(*args, **kwargs):
-        print("Function started")
+        start_time = time.time()
         result = func(*args, **kwargs)
-        print("Function ended")
-        return result
+        end_time = time.time()   
+        print(f"Execution time: {end_time - start_time:.6f} seconds")
     return wrapper
 
 @measure_time
-def greet(name):
-    print("Hello", name)
-
-greet("Piyush")
+def greet():
+    time.sleep(2)
+greet()
 
 print("5. Create a generator that generates even numbers up to 50.")
 def even_numbers():
